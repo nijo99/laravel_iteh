@@ -18,11 +18,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
 // Display the login form
-Route::get('/login', [App\Http\Controllers\Auth\LoginController::class, 'showLoginForm'])->name('login');
+Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
 
 // Handle the form submission
-Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'login'])->name('login.attempt');
+Route::post('/login', [LoginController::class, 'login'])->name('login.attempt');
 
-Route::post('/logout', [App\Http\Controllers\Auth\LoginController::class, 'logout'])->name('logout');
+// Handle logout
+Route::post('/logout', [LoginController::class, 'logout'])->name('logout');

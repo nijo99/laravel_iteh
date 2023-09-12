@@ -3,17 +3,12 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use App\Models\User; // Make sure this is here
-
+use App\Models\User; 
 class UserSeeder extends Seeder
 {
     public function run()
     {
-        User::create([
-            'name' => 'Nikola',
-            'email' => 'nikola@nikola.com',
-            'password' => bcrypt('nikola'),
-        ]);
+        User::factory(10)->create();
     }
 }
 

@@ -21,9 +21,17 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-
 Route::middleware('auth:sanctum')->group(function () {
-    Route::apiResource('free-bets', FreeBetController::class);
-    Route::apiResource('cards', CardController::class);
-    Route::apiResource('guesses', GuessController::class);
+    // Free Bets
+    Route::get('/freebets', [FreeBetController::class, 'index']);
+    Route::get('/freebets/{id}', [FreeBetController::class, 'show']);
+    Route::post('/freebets', [FreeBetController::class, 'store']);
+
+    // Cards
+    Route::get('/cards', [CardController::class, 'index']);
+    Route::post('/cards', [CardController::class, 'store']);
+
+    // Guesses
+    Route::get('/guesses/{id}', [GuessController::class, 'show']);
 });
+
