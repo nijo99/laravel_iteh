@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use App\Models\Card;
 use Illuminate\Http\Request;
 
 class CardController extends Controller
@@ -11,15 +11,15 @@ class CardController extends Controller
      */
     public function index()
     {
-        //
+        return Card::all();
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request) {
+        $freeBet = Card::create($request->all());
+        return response()->json($freeBet, 201);
     }
 
     /**

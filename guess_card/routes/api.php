@@ -24,7 +24,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::middleware('auth:sanctum')->group(function () {
     // Free Bets
     Route::get('/freebets', [FreeBetController::class, 'index']);
-    Route::get('/freebets/{id}', [FreeBetController::class, 'show']);
+    Route::get('/freebets/{freeBet}', [FreeBetController::class, 'show']);
     Route::post('/freebets', [FreeBetController::class, 'store']);
 
     // Cards

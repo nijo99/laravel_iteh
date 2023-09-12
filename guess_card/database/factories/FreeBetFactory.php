@@ -8,7 +8,6 @@ use App\Models\FreeBet;
 class FreeBetFactory extends Factory
 {
     protected $model = FreeBet::class;
-
     public function definition()
     {
         return [

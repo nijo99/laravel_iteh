@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class FreeBet extends Model
 {
     use HasFactory;
+    protected $fillable = ['user_id', 'up_down', 'attempt_datetime'];
     public $timestamps = false;
     public function user() {
         return $this->belongsTo(User::class);
