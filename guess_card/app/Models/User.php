@@ -42,4 +42,16 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+    public $timestamps = false;
+    public function freeBets() {
+        return $this->hasMany(FreeBet::class);
+    }
+
+    public function cards() {
+        return $this->hasMany(Card::class);
+    }
+
+    public function guesses() {
+        return $this->hasMany(Guess::class);
+    }    
 }

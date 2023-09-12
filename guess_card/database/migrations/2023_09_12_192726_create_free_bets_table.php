@@ -13,9 +13,12 @@ return new class extends Migration
     {
         Schema::create('free_bets', function (Blueprint $table) {
             $table->id();
-            $table->string('user_id');
+            $table->unsignedBigInteger('user_id');
             $table->string('up_down');
-            $table->timestamp('attempt_datetime');
+            $table->timestamp('attempt_datetime')->nullable();
+            $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 

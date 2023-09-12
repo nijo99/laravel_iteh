@@ -13,10 +13,13 @@ return new class extends Migration
     {
         Schema::create('cards', function (Blueprint $table) {
             $table->id();
-            $table->string('user_id');
-            $table->integer('card_hidden');
-            $table->integer('card_offered');
-            $table->timestamp('generate_datetime');
+            $table->unsignedBigInteger('user_id');
+            $table->integer('card_hidden')->between(1, 14);
+            $table->integer('card_offered')->between(1, 14);
+            $table->timestamp('generate_datetime')->nullable();
+            $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
         });
     }
 
