@@ -15,5 +15,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
+    
     return $request->user();
 });
+
+
+Route::apiResource('free-bets', FreeBetController::class);
+Route::apiResource('cards', CardController::class);
+Route::apiResource('guesses', GuessController::class);
